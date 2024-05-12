@@ -2,6 +2,7 @@ import pandas as pd
 import glob
 import re
 import json
+import os
 
 notes_file = open('notes.json')
 notes = json.load(notes_file)
@@ -37,8 +38,11 @@ def compute(path):
         category = category.replace("_"," ")
         
         note = notes[name] if (name in notes)  else ""
+        elytra_image_path = f"{image_path}/{image_name}.png"
+        if not os.path.exists(elytra_image_path):
+            return
         
-        data = [[name,f"<img src=\"{image_path}/{image_name}.png\" style=\"width: 100px; image-rendering: pixelated;\">",f"<img src=\"{image_path}/broken_elytra.png\" style=\"width: 100px; image-rendering: pixelated;\">",category,note]]
+        data = [[name,f"<img src=\"{elytra_image_path}\" style=\"width: 100px; image-rendering: pixelated;\">",f"<img src=\"{image_path}/broken_elytra.png\" style=\"width: 100px; image-rendering: pixelated;\">",category,note]]
         df = pd.DataFrame(data, columns=['name','image','broken_image','category','notes'])
         return df
 
