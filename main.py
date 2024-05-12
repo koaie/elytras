@@ -57,7 +57,7 @@ style = "<head><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/saku
 print(df)
 html = df.to_html(escape=False, border=0)
 html = f"{style}\n{html}"
-output = open(f"all.html", "w")
+output = open(f"index.html", "w")
 output.writelines(html)
 output.close()
 
