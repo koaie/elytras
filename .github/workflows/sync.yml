@@ -1,7 +1,7 @@
 on:
     schedule:
-      - cron:  '0 0 * * *'
-      # scheduled at 07:00 every Monday and Thursday
+      - cron:  '0 */3 * * *'
+      # scheduled every 3 hours
   
     workflow_dispatch:  # click the button on Github repo!
   
@@ -24,7 +24,7 @@ jobs:
         id: sync
         uses: aormsby/Fork-Sync-With-Upstream-action@v2.1
         with:
-          upstream_repository: aormsby/hugo-deploy-to-pages
+          upstream_repository: dbrighthd/elytras
           upstream_branch: main
           target_branch: main
           git_pull_args: --ff-only                    # optional arg use, defaults to simple 'pull'
