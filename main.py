@@ -42,7 +42,7 @@ def compute(path):
         if not os.path.exists(elytra_image_path):
             return
         
-        data = [[name,f"<img src=\"{elytra_image_path}\" style=\"width: 100px; image-rendering: pixelated;\">",f"<img src=\"{image_path}/broken_elytra.png\" style=\"width: 100px; image-rendering: pixelated;\">",category,note]]
+        data = [[name,f"<img src=\"{elytra_image_path}\" style=\"width: 100px; max-width:none; image-rendering: pixelated;\">",f"<img src=\"{image_path}/broken_elytra.png\" style=\"width: 100px; image-rendering: pixelated;\">",category,note]]
         df = pd.DataFrame(data, columns=['name','image','broken_image','category','notes'])
         return df
 
