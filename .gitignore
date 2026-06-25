@@ -5,3 +5,7 @@
 # Python
 __pycache__/
 *.py[cod]
+
+# Generated gallery (built and deployed by CI, not committed)
+*.html
+/_site/

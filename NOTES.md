@@ -44,9 +44,14 @@ gallery. Names not present get a blank note.
 
 ## Output
 
-`main.py` writes `index.html` plus one page per category. These are committed
-to the repo (GitHub Pages-style gallery) and the build workflow auto-commits
-regenerated copies on every push, so they are intentionally **not** gitignored.
+`main.py` writes `index.html` plus one page per category. These are generated
+artifacts and are **gitignored** — they are not committed. On every push to
+`main`, `build_and_run.yml` rebuilds them and deploys to GitHub Pages
+(`upload-pages-artifact` + `deploy-pages`), copying the HTML and
+`assets/minecraft/textures` into the published `_site`.
+
+The repo's Pages source must be set to **GitHub Actions** (Settings → Pages →
+Build and deployment → Source), not "Deploy from a branch".
 
 ## Gotchas
 

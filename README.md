@@ -61,8 +61,9 @@ See [NOTES.md](NOTES.md) for developer/maintenance details.
 
 ## Automation
 
-- **`.github/workflows/build_and_run.yml`** — on every push, runs `main.py` and
-  auto-commits the regenerated HTML.
+- **`.github/workflows/build_and_run.yml`** — on every push to `main`, runs
+  `main.py` and deploys the generated gallery to GitHub Pages. The HTML is built
+  in CI and published directly, so it is **not** committed to the repo.
 - **`.github/workflows/sync.yml`** — every 3 hours, fast-forwards `main` from
   the upstream repo (`dbrighthd/elytras`).
 
